@@ -50,14 +50,16 @@ export class App extends React.Component {
     }));
   };
 
-  componentDidMount() {
-    let contactList = JSON.parse(localStorage.getItem(LS_KEY));
-    this.setState({ contacts: contactList });
-  }
-
   componentDidUpdate(_, prevState) {
     if (prevState.contacts !== this.state.contacts) {
       localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
+    }
+  }
+
+  componentDidMount() {
+    let contactList = JSON.parse(localStorage.getItem(LS_KEY));
+    if (contactList !== []) {
+      this.setState({ contacts: contactList });
     }
   }
 
