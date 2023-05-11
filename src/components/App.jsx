@@ -1,8 +1,8 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import Form from './Form/form';
-import Filter from './Filter/filter';
 import ContactList from './ContactList/contactList';
+import Filter from './Filter/filter';
 import { Section } from './App.styled';
 
 const LS_KEY = 'contacts';
