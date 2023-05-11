@@ -66,9 +66,11 @@ export class App extends React.Component {
   render() {
     const { filters, contacts } = this.state;
     const normalazedFilter = filters.toLowerCase();
-    const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalazedFilter)
-    );
+    const filteredContacts =
+      contacts &&
+      contacts.filter(contact =>
+        contact.name.toLowerCase().includes(normalazedFilter)
+      );
 
     return (
       <Section>
