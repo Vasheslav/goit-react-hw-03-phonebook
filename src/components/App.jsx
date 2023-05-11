@@ -10,7 +10,7 @@ const LS_KEY = 'contacts';
 export class App extends React.Component {
   state = {
     contacts: [],
-    filter: '',
+    filters: '',
   };
 
   formSubmitHandler = data => {
@@ -41,7 +41,7 @@ export class App extends React.Component {
   };
 
   handleChangeFilter = e => {
-    this.setState({ filter: e.currentTarget.value });
+    this.setState({ filters: e.currentTarget.value });
   };
 
   deleteContact = contactId => {
@@ -62,8 +62,8 @@ export class App extends React.Component {
   }
 
   render() {
-    const { filter, contacts } = this.state;
-    const normalazedFilter = filter.toLowerCase();
+    const { filters, contacts } = this.state;
+    const normalazedFilter = filters.toLowerCase();
     const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalazedFilter)
     );
@@ -74,7 +74,7 @@ export class App extends React.Component {
         <Form onSubmit={this.formSubmitHandler} />
 
         <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.handleChangeFilter} />
+        <Filter value={filters} onChange={this.handleChangeFilter} />
         <ContactList
           filteredContacts={filteredContacts}
           onDeleteContact={this.deleteContact}
