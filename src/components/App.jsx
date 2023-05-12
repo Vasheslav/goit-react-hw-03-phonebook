@@ -58,7 +58,9 @@ export class App extends React.Component {
 
   componentDidMount() {
     let contactList = JSON.parse(localStorage.getItem(LS_KEY));
-    this.setState({ contacts: contactList });
+    if (contactList) {
+      this.setState({ contacts: contactList });
+    }
   }
 
   render() {
