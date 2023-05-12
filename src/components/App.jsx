@@ -58,19 +58,15 @@ export class App extends React.Component {
 
   componentDidMount() {
     let contactList = JSON.parse(localStorage.getItem(LS_KEY));
-    if (contactList !== []) {
-      this.setState({ contacts: contactList });
-    }
+    this.setState({ contacts: contactList });
   }
 
   render() {
     const { filters, contacts } = this.state;
     const normalazedFilter = filters.toLowerCase();
-    const filteredContacts =
-      contacts &&
-      contacts.filter(contact =>
-        contact.name.toLowerCase().includes(normalazedFilter)
-      );
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalazedFilter)
+    );
 
     return (
       <Section>
